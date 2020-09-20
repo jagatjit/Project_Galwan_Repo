@@ -20,7 +20,7 @@
 	extern uint16_t gRx_Count, gRx_Fail;
 	extern uint8_t  gRSSI, gdB;
 
-	uint16_t gTimer_D_RF_Info = 0;
+	extern uint16_t gTimer_Display_RF_Info;
 
 
 
@@ -58,7 +58,7 @@ void Display_RF_Info()
 {
 
   Obj_OLED_01.fill(0);
-  Obj_OLED_01.drawFullscreen();
+//  Obj_OLED_01.drawFullscreen();
 
   sprintf( s, "Tx %d  %d ", gTx_Count, gTx_Fail );
   Obj_OLED_01.text(0, 0, s,  1, 0, 2  );
@@ -81,14 +81,14 @@ void OLED_Schedule_And_Event_Control()
 
 //  Obj_OLED_01.fill(0);
 //  Obj_OLED_01.drawFullscreen();
-	Display_RF_Info();
 
-	if(gTimer_D_RF_Info == 0)
+
+	if(gTimer_Display_RF_Info == 0)
 	{
-		gTimer_D_RF_Info = 1000;
+		gTimer_Display_RF_Info = 200;
 		Display_RF_Info();
 
-	  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);		// Red LED
+//	  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);		// Red LED
 	}
 
 

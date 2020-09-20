@@ -6,7 +6,11 @@
 
 
 extern UART_HandleTypeDef huart2;
+char gSerial_Console_Print_Buff[100];
 
+uint16_t gTimer_Display_RF_Info = 0;
+uint16_t gTimer_Radio_Schedule = 0;
+uint16_t gTimer_Accelerometer_Schedule = 0;
 
 
 

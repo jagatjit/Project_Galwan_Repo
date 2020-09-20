@@ -24,7 +24,7 @@
 
 #ifdef __cplusplus
  extern "C" {
-#endif 
+#endif
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -56,9 +56,12 @@ void SVC_Handler(void);
 void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
+void EXTI0_IRQHandler(void);
+void EXTI2_IRQHandler(void);
 void DMA1_Stream5_IRQHandler(void);
 void DMA1_Stream6_IRQHandler(void);
 void TIM1_BRK_TIM9_IRQHandler(void);
+void TIM1_UP_TIM10_IRQHandler(void);
 void TIM3_IRQHandler(void);
 void I2C1_EV_IRQHandler(void);
 void SPI1_IRQHandler(void);

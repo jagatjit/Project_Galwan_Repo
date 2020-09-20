@@ -1,4 +1,3 @@
-
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
@@ -71,8 +70,6 @@ void Error_Handler(void);
 #define PH1_OSC_OUT_GPIO_Port GPIOH
 #define PDM_OUT_Pin GPIO_PIN_3
 #define PDM_OUT_GPIO_Port GPIOC
-#define B1_Pin GPIO_PIN_0
-#define B1_GPIO_Port GPIOA
 #define I2S3_WS_Pin GPIO_PIN_4
 #define I2S3_WS_GPIO_Port GPIOA
 #define SPI1_SCK_Pin GPIO_PIN_5
@@ -89,8 +86,27 @@ void Error_Handler(void);
 #define CS3_GPIO_Port GPIOB
 #define CS4_Pin GPIO_PIN_1
 #define CS4_GPIO_Port GPIOB
+#define Radio_IRQ_Pin GPIO_PIN_2
+#define Radio_IRQ_GPIO_Port GPIOB
+#define Radio_IRQ_EXTI_IRQn EXTI2_IRQn
+#define GPIO_Input_01_Pin GPIO_PIN_7
+#define GPIO_Input_01_GPIO_Port GPIOE
+#define GPIO_Input_02_Pin GPIO_PIN_8
+#define GPIO_Input_02_GPIO_Port GPIOE
+#define GPIO_Input_03_Pin GPIO_PIN_9
+#define GPIO_Input_03_GPIO_Port GPIOE
+#define GPIO_Input_04_Pin GPIO_PIN_10
+#define GPIO_Input_04_GPIO_Port GPIOE
 #define CLK_IN_Pin GPIO_PIN_10
 #define CLK_IN_GPIO_Port GPIOB
+#define GPIO_Output_01_Pin GPIO_PIN_14
+#define GPIO_Output_01_GPIO_Port GPIOB
+#define GPIO_Output_02_Pin GPIO_PIN_15
+#define GPIO_Output_02_GPIO_Port GPIOB
+#define GPIO_Output_03_Pin GPIO_PIN_8
+#define GPIO_Output_03_GPIO_Port GPIOD
+#define GPIO_Output_04_Pin GPIO_PIN_9
+#define GPIO_Output_04_GPIO_Port GPIOD
 #define CSN_Pin GPIO_PIN_10
 #define CSN_GPIO_Port GPIOD
 #define CE_Pin GPIO_PIN_11

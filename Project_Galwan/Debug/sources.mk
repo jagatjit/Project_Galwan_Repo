@@ -13,23 +13,27 @@ C_SRCS :=
 CPP_SRCS := 
 S_UPPER_SRCS := 
 O_SRCS := 
+OBJDUMP_LIST := 
+C_UPPER_DEPS := 
+S_DEPS := 
+C_DEPS := 
+OBJCOPY_BIN := 
 CC_DEPS := 
 SIZE_OUTPUT := 
-OBJDUMP_LIST := 
 C++_DEPS := 
 EXECUTABLES := 
 OBJS := 
-C_UPPER_DEPS := 
 CXX_DEPS := 
-C_DEPS := 
+S_UPPER_DEPS := 
 CPP_DEPS := 
-OBJCOPY_BIN := 
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-Core/Radio_Module/NRF24L01 \
-Core/SSD1306 \
 Core/Src \
 Core/Startup \
 Drivers/STM32F4xx_HAL_Driver/Src \
+Suporting_Devices/Accelelometer_Chip \
+Suporting_Devices/Common_Helper_Fuctions/Src \
+Suporting_Devices/Radio_Module/NRF24L01/Src \
+Suporting_Devices/SSD1306/Src \
 

@@ -221,7 +221,7 @@ void NRF24_begin(GPIO_TypeDef *nrf24PORT, uint16_t nrfCSN_Pin, uint16_t nrfCE_Pi
 	NRF24_write_register(0x0E, 0xC5);
 	NRF24_write_register(0x0F, 0xC6);
 	pipeAddrVar[4]=0xE7; pipeAddrVar[3]=0xE7; pipeAddrVar[2]=0xE7; pipeAddrVar[1]=0xE7; pipeAddrVar[0]=0xE7; 
-	NRF24_write_registerN(0x10, pipeAddrVar, 5);
+	NRF24_write_registerN(0x10, pipeAddrVar, 5);		// Tx
 	NRF24_write_register(0x11, 0);
 	NRF24_write_register(0x12, 0);
 	NRF24_write_register(0x13, 0);
@@ -238,9 +238,9 @@ void NRF24_begin(GPIO_TypeDef *nrf24PORT, uint16_t nrfCSN_Pin, uint16_t nrfCE_Pi
 	//Initialise retries 15 and delay 1250 usec
 	NRF24_setRetries(15, 15);
 	//Initialise PA level to max (0dB)
-	NRF24_setPALevel(RF24_PA_m6dB);
+	NRF24_setPALevel(RF24_PA_0dB);
 	//Initialise data rate to 1Mbps
-	NRF24_setDataRate(RF24_1MBPS);
+	NRF24_setDataRate(RF24_2MBPS);
 	//Initalise CRC length to 16-bit (2 bytes)
 	NRF24_setCRCLength(RF24_CRC_16);
 	//Disable dynamic payload

@@ -8,11 +8,13 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Suporting_Devices/SSD1306/Src/subdir.mk
+-include Suporting_Devices/Radio_Module/NRF24L01/Src/subdir.mk
+-include Suporting_Devices/Common_Helper_Fuctions/Src/subdir.mk
+-include Suporting_Devices/Accelelometer_Chip/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
--include Core/SSD1306/subdir.mk
--include Core/Radio_Module/NRF24L01/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -28,6 +30,12 @@ ifneq ($(strip $(C_UPPER_DEPS)),)
 endif
 ifneq ($(strip $(CXX_DEPS)),)
 -include $(CXX_DEPS)
+endif
+ifneq ($(strip $(S_DEPS)),)
+-include $(S_DEPS)
+endif
+ifneq ($(strip $(S_UPPER_DEPS)),)
+-include $(S_UPPER_DEPS)
 endif
 ifneq ($(strip $(C_DEPS)),)
 -include $(C_DEPS)
@@ -57,8 +65,8 @@ Project_Galwan.bin \
 all: Project_Galwan.elf secondary-outputs
 
 # Tool invocations
-Project_Galwan.elf: $(OBJS) $(USER_OBJS) C:\Working\ Directory\Embedded\ IoT\Projects\Project_Galwan\Project_Galwan\STM32F407VGTX_FLASH.ld
-	arm-none-eabi-g++ -o "Project_Galwan.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Working Directory\Embedded IoT\Projects\Project_Galwan\Project_Galwan\STM32F407VGTX_FLASH.ld" -Wl,-Map="Project_Galwan.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Project_Galwan.elf: $(OBJS) $(USER_OBJS) C:\Working\ Directory\Embedded\ IoT\Projects\Project_Galwan\Project_Galwan_Repo\Project_Galwan\STM32F407VGTX_FLASH.ld
+	arm-none-eabi-g++ -o "Project_Galwan.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Working Directory\Embedded IoT\Projects\Project_Galwan\Project_Galwan_Repo\Project_Galwan\STM32F407VGTX_FLASH.ld" -Wl,-Map="Project_Galwan.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

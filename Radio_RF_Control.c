@@ -24,7 +24,7 @@ uint16_t gTx_Count = 0 , gTx_Fail = 0, gRx_Count = 0 , gRx_Fail = 0;
 uint8_t  gRSSI=0, gdB=0;
 uint8_t  gTxRxFlag =0;
 uint8_t  gPrint_Counter =0;
-extern char gSerial_Console_Print_Buff[100];
+
 
 
 
@@ -69,7 +69,7 @@ void NRF24L01_Initial_Configuartion()
 	//  NRF24_enableDynamicPayloads();
 	//  NRF24_enableAckPayload();
 
-  NRF24_openWritingPipe(TxpipeAddrs);
+	NRF24_openWritingPipe(TxpipeAddrs);
 	NRF24_openReadingPipe(1, RxpipeAddrs);
   printRadioSettings();
 
@@ -86,8 +86,8 @@ uint8_t Radio_Transmit_Data()
 //		NRF24_read(AckPayload, 32);
 		gTx_Count++;
 
-//	sprintf(gSerial_Console_Print_Buff, "AckPayload:  %s \r\n", AckPayload);
-//	Print_Debug_Info_UART(gSerial_Console_Print_Buff);
+//	sprintf(serial_console_print, "AckPayload:  %s \r\n", AckPayload);
+//	Print_Debug_Info_UART(serial_console_print);
 
 	}
 	else
@@ -105,7 +105,6 @@ uint8_t Radio_Receive_Data()
 	uint8_t ret_val;
 
 	NRF24_startListening();
-  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);	// Green LED
 
 	ret_val = NRF24_available();
 	if(ret_val)
@@ -114,11 +113,8 @@ uint8_t Radio_Receive_Data()
 //    NRF24_writeAckPayload(1, myAckPayload, 32);
 		gRx_Count++;
 
-//	sprintf(gSerial_Console_Print_Buff, "myAckPayload:  %s \r\n", myAckPayload);
-//	Print_Debug_Info_UART(gSerial_Console_Print_Buff);
-
-		sprintf(gSerial_Console_Print_Buff, "Received Data:{  %s  } - Rx Count %d \r\n", myRxData, gRx_Count);
-		Print_Debug_Info_UART(gSerial_Console_Print_Buff);
+//	sprintf(serial_console_print, "myAckPayload:  %s \r\n", myAckPayload);
+//	Print_Debug_Info_UART(serial_console_print);
 
 	}
 
@@ -128,34 +124,35 @@ uint8_t Radio_Receive_Data()
 
 void NRF24L01_Schedule_And_Event_Control()
 {
-
+	char serial_console_print[80];
 	gPrint_Counter++;
 
 	Read_User_Pin();
 
   if(gTxRxFlag)
   {
-//  	Print_Debug_Info_UART("----------  Configured as Transmitter  ------------ \r\n");
-		sprintf(myTxData,"Tx Count= %d, Tx Failed= %d ", gTx_Count, gTx_Fail);
-		sprintf(gSerial_Console_Print_Buff, "Tx Count= %d, Tx Failed= %d, Rx Count= %d, Rx Failed= %d  \r\n",gTx_Count , gTx_Fail, gRx_Count, gRx_Fail);
+  	Print_Debug_Info_UART("----------  Configured as Transmitter  ------------ \r\n");
+		sprintf(myTxData,"Tx Count= %d, Tx Failed= %d \r ", gTx_Count, gTx_Fail);
+		sprintf(serial_console_print, "Tx Count= %d, Tx Failed= %d, Rx Count= %d, Rx Failed= %d  \r\n",gTx_Count , gTx_Fail, gRx_Count, gRx_Fail);
 
 		Radio_Transmit_Data();
-		Print_Debug_Info_UART(gSerial_Console_Print_Buff);
+		Print_Debug_Info_UART(serial_console_print);
   }
-//  else
-//  {		//Serving as Rx
+  else
+  {		//Serving as Rx
 
-//  	Print_Debug_Info_UART(" - Configured as Receiver - \r\n");
-//	  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);	// Green LED
+  	Print_Debug_Info_UART(" - Configured as Receiver - \r\n");
+	  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);	// Green LED
 
-//	  if( Radio_Receive_Data())
-//	  {
-//			sprintf(gSerial_Console_Print_Buff, "Received Data:{  %s  } - Rx Count %d \r\n", myRxData, gRx_Count);
-//			Print_Debug_Info_UART(gSerial_Console_Print_Buff);
-//	  }
+	  if( Radio_Receive_Data())
+	  {
+			myRxData[32] = '\r'; myRxData[32+1] = '\n';
+			sprintf(serial_console_print, "Received Data:{ %s} Rx Count %d \r\n", myRxData, gRx_Count);
+			Print_Debug_Info_UART(serial_console_print);
+	  }
 
 
-//  }
+  }
 
   if(gPrint_Counter % 5 == 0)
   {

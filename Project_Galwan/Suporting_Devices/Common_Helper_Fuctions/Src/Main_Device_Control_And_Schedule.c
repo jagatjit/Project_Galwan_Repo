@@ -9,8 +9,8 @@
 LIS3DSH_DataScaled myData;
 
 uint8_t gAccelerometer_DataReady_Flag=0;
-
-
+extern uint16_t gTimer_Radio_Schedule;
+extern uint8_t  gTxRxFlag;
 
 
 
@@ -39,7 +39,17 @@ void All_Device_Control_And_Schedule()
 
 //
 
-  NRF24L01_Schedule_And_Event_Control();
+	if(gTimer_Radio_Schedule == 0)
+	{
+		gTimer_Radio_Schedule = 500;
+		NRF24L01_Schedule_And_Event_Control();
+	}
+
+  if(!gTxRxFlag)
+  	Radio_Receive_Data();
+
+
+
 
 
 }

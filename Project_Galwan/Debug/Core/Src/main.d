@@ -1,6 +1,4 @@
-Core/Src/main.o: ../Core/Src/main.cpp \
- C:/Working\ Directory/Embedded\ IoT/Projects/Project_Galwan/Project_Galwan/Core/SSD1306/OLED_LCD_Control.h \
- C:/Working\ Directory/Embedded\ IoT/Projects/Project_Galwan/Project_Galwan/Core/SSD1306/RJA_SSD1306.h \
+Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -15,9 +13,9 @@ Core/Src/main.o: ../Core/Src/main.cpp \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
@@ -38,12 +36,11 @@ Core/Src/main.o: ../Core/Src/main.cpp \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- ../Core/Inc/main.h \
- C:/Working\ Directory/Embedded\ IoT/Projects/Project_Galwan/Project_Galwan/Core/SSD1306/RJA_SSD1306.h
+ C:/Working\ Directory/Embedded\ IoT/Projects/Project_Galwan/Project_Galwan_Repo/Project_Galwan/Suporting_Devices/SSD1306/Inc/OLED_LCD_Control.h \
+ C:/Working\ Directory/Embedded\ IoT/Projects/Project_Galwan/Project_Galwan_Repo/Project_Galwan/Suporting_Devices/Common_Helper_Fuctions/Inc/Helper_Function.h \
+ C:/Working\ Directory/Embedded\ IoT/Projects/Project_Galwan/Project_Galwan_Repo/Project_Galwan/Suporting_Devices/Common_Helper_Fuctions/Inc/Main_Device_Control_And_Schedule.h
 
-C:/Working\ Directory/Embedded\ IoT/Projects/Project_Galwan/Project_Galwan/Core/SSD1306/OLED_LCD_Control.h:
-
-C:/Working\ Directory/Embedded\ IoT/Projects/Project_Galwan/Project_Galwan/Core/SSD1306/RJA_SSD1306.h:
+../Core/Inc/main.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
@@ -73,11 +70,11 @@ C:/Working\ Directory/Embedded\ IoT/Projects/Project_Galwan/Project_Galwan/Core/
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:
 
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h:
-
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h:
+
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h:
 
@@ -119,6 +116,8 @@ C:/Working\ Directory/Embedded\ IoT/Projects/Project_Galwan/Project_Galwan/Core/
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
-../Core/Inc/main.h:
+C:/Working\ Directory/Embedded\ IoT/Projects/Project_Galwan/Project_Galwan_Repo/Project_Galwan/Suporting_Devices/SSD1306/Inc/OLED_LCD_Control.h:
 
-C:/Working\ Directory/Embedded\ IoT/Projects/Project_Galwan/Project_Galwan/Core/SSD1306/RJA_SSD1306.h:
+C:/Working\ Directory/Embedded\ IoT/Projects/Project_Galwan/Project_Galwan_Repo/Project_Galwan/Suporting_Devices/Common_Helper_Fuctions/Inc/Helper_Function.h:
+
+C:/Working\ Directory/Embedded\ IoT/Projects/Project_Galwan/Project_Galwan_Repo/Project_Galwan/Suporting_Devices/Common_Helper_Fuctions/Inc/Main_Device_Control_And_Schedule.h:
